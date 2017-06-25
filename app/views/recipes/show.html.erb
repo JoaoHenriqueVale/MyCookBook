@@ -1,7 +1,7 @@
 <h1><%= @recipe.title %></h1>
 <h3>Detalhes</h3>
 Tipo de cozinha:<p><%=@recipe.recipe_type%></p>
-Cozinha: <p><%=@recipe.cuisine%></p>
+Cozinha: <p><%=@recipe.cuisine.name%></p>
 Dificuldade:<p><%=@recipe.difficulty%></p>
 Tempo de preparo: <p><%=@recipe.cook_time%> minutos</p>
 
