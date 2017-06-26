@@ -6,6 +6,7 @@ class RecipesController < ApplicationController
   def new
   @recipe = Recipe.new
   @cuisines = Cuisine.all
+  @recipe_types = RecipeType.all
   end
 
   def create
@@ -15,6 +16,7 @@ class RecipesController < ApplicationController
     else
       flash[:error] = "Você deve informar todos os dados da receita"
       @cuisines = Cuisine.all
+      @recipe_types = RecipeType.all
       render :new
     end
   end
@@ -22,7 +24,7 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-      params.require(:recipe).permit(:title, :recipe_type,
+      params.require(:recipe).permit(:title, :recipe_type_id,
                                      :cook_time, :cuisine_id, :ingredients,
                                      :method, :difficulty)
   end
