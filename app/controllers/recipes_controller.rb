@@ -1,12 +1,12 @@
 class RecipesController < ApplicationController
+  before_action :set_collections, only:[:new]
+  before_action :set_recipe, only:[:show]
+
   def show
-    @recipe = Recipe.find(params[:id])
   end
 
   def new
-  @recipe = Recipe.new
-  @cuisines = Cuisine.all
-  @recipe_types = RecipeType.all
+    @recipe = Recipe.new
   end
 
   def create
@@ -15,8 +15,7 @@ class RecipesController < ApplicationController
       redirect_to recipe_url(@recipe.id)
     else
       flash[:error] = "Você deve informar todos os dados da receita"
-      @cuisines = Cuisine.all
-      @recipe_types = RecipeType.all
+      set_collections
       render :new
     end
   end
@@ -27,5 +26,14 @@ class RecipesController < ApplicationController
       params.require(:recipe).permit(:title, :recipe_type_id,
                                      :cook_time, :cuisine_id, :ingredients,
                                      :method, :difficulty)
+  end
+
+  def set_collections
+    @cuisines = Cuisine.all
+    @recipe_types = RecipeType.all
+  end
+
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
   end
 end
