@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
-  before_action :set_collections, only:[:new]
-  before_action :set_recipe, only:[:show]
+  before_action :set_collections, only:[:new,:edit]
+  before_action :set_recipe, only:[:show,:edit,:update]
 
   def show
   end
@@ -17,6 +17,20 @@ class RecipesController < ApplicationController
       flash[:error] = "Você deve informar todos os dados da receita"
       set_collections
       render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    @recipe.update(recipe_params)
+    if @recipe.valid?
+      redirect_to recipe_url(@recipe.id)
+    else
+      flash[:error] = "Você deve informar todos os dados da receita"
+      set_collections
+      render :edit
     end
   end
 
