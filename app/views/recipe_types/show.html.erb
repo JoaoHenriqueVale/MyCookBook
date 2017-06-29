@@ -1,5 +1,5 @@
 <h1><%=@recipe_type.name%></h1>
-
+<main>
 <% if @recipe_type.recipes.empty? %>
   <p>Nenhuma receita encontrada para este tipo de receitas</p>
 <% else %>
@@ -7,3 +7,4 @@
     <%= render recipe_type %>
   <% end %>
 <% end %>
+</main>

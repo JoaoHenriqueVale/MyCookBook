@@ -1,7 +1,10 @@
-<%= form_for(@recipe_type) do |f| %>
-  <div>
-    <%= f.label :name, 'Nome' %>
-    <%= f.text_field :name %>
-  </div>
-  <%= f.submit 'Enviar' %>
-<% end %>
+<h1>Inserir Tipo de Receita</h1>
+<main>
+  <%= form_for(@recipe_type) do |f| %>
+    <div>
+      <%= f.label :name, 'Nome' %>
+      <%= f.text_field :name %>
+    </div>
+    <%= f.submit 'Enviar' %>
+  <% end %>
+</main>

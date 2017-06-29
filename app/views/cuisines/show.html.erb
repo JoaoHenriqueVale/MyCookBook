@@ -1,5 +1,5 @@
 <h1><%=@cuisine.name%></h1>
-
+<main>
 <% if @cuisine.recipes.empty? %>
   <p>Nenhuma receita encontrada para este tipo de cozinha</p>
 
@@ -8,3 +8,4 @@
     <%= render recipe %>
   <% end %>
 <% end %>
+</main>

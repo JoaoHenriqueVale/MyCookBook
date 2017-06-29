@@ -1,7 +1,10 @@
-<%= form_for(@cuisine) do |f| %>
-  <div>
-    <%= f.label :name, 'Nome' %>
-    <%= f.text_field :name %>
-  </div>
-  <%= f.submit 'Enviar' %>
-<% end %>
+<h1>Editar Cozinha</h1>
+<main>
+  <%= form_for(@cuisine) do |f| %>
+    <div>
+      <%= f.label :name, 'Nome' %>
+      <%= f.text_field :name %>
+    </div>
+    <%= f.submit 'Enviar' %>
+  <% end %>
+</main>
