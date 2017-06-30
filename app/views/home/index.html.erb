@@ -1,8 +1,3 @@
-<main>
-  <% @recipes.each do |recipe| %>
-    <%= render recipe %>
-  <% end %>
-</main>
 <aside>
   <h2>Tipos de Cozinhas</h2>
   <% @cuisines.each do |cuisine| %>
@@ -14,3 +9,11 @@
     <li><%= link_to recipe_type.name, recipe_type%></li>
   <% end %>
 </aside>
+
+<main>
+  <h2>Útimas receitas</h2>
+  <% @recipes.each do |recipe| %>
+    <%= render recipe %>
+  <% end %>
+  <%= link_to 'Ver todas receitas', all_recipes_path %>
+</main>
