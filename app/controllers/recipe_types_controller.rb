@@ -1,5 +1,5 @@
 class RecipeTypesController < ApplicationController
-  before_action :set_recipe_type, only:[:show]
+  before_action :set_recipe_type, only:[:show,:edit,:update]
 
   def show
   end
@@ -15,6 +15,19 @@ class RecipeTypesController < ApplicationController
     else
       flash[:error] = "Você deve informar o nome do tipo de receita"
       render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    @recipe_type.update(recipe_type_params)
+    if @recipe_type.valid?
+      redirect_to recipe_type_url(@recipe_type.id)
+    else
+      flash[:error] = "Você deve informar o nome do tipo de receita"
+      render :edit
     end
   end
 
