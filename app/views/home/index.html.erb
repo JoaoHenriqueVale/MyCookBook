@@ -1,19 +1,27 @@
-<aside>
-  <h2>Tipos de Cozinhas</h2>
-  <% @cuisines.each do |cuisine| %>
-    <li><%= link_to cuisine.name, cuisine%></li>
-  <% end %>
 
-  <h2>Tipos de Receitas</h2>
-  <% @recipe_types.each do |recipe_type| %>
-    <li><%= link_to recipe_type.name, recipe_type%></li>
-  <% end %>
-</aside>
+<div class="row">
+  <aside>
+    <div class="col-md-3 col-sm-12">
+      <h2>Tipos de Cozinhas</h2>
+      <% @cuisines.each do |cuisine| %>
+        <li><%= link_to cuisine.name, cuisine%></li>
+      <% end %>
 
-<main>
-  <h2>Útimas receitas</h2>
-  <% @recipes.each do |recipe| %>
-    <%= render recipe %>
-  <% end %>
-  <%= link_to 'Ver todas receitas', all_recipes_path %>
-</main>
+      <h2>Tipos de Receitas</h2>
+      <% @recipe_types.each do |recipe_type| %>
+        <li><%= link_to recipe_type.name, recipe_type%></li>
+      <% end %>
+    </div>
+  </aside>
+
+
+  <main>
+    <div class="col-md-9 col-sm-12">
+      <h2>Útimas receitas</h2>
+      <% @recipes.each do |recipe| %>
+        <%= render recipe %>
+      <% end %>
+      <%= link_to 'Ver todas receitas', all_recipes_path %>
+    </div>
+  </main>
+</div>
