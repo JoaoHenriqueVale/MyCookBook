@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :recipes, only: [:show,:new,:create, :edit, :update]
   resources :cuisines, only: [:show,:new,:create]
   resources :recipe_types, only: [:show,:new,:create]
+  post 'search', to: 'home#search'
 end
